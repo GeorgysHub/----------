@@ -1,13 +1,12 @@
 // Этап 1: Минификация кода
 function minifyCode(inputCode) {
-    // Реализация минификации (удаление пробелов, переводов строк, комментариев)
+    // (удаление пробелов, переводов строк, комментариев)
     let minifiedCode = inputCode.replace(/\s+/g, '').replace(/\/\/.*$/gm, '').replace(/\/\*[\s\S]*?\*\//g, '');
     return minifiedCode;
 }
 
 // Этап 2: Изменение структуры кода
 function rearrangeCode(inputCode) {
-    // Реализация изменения структуры кода
     const lines = inputCode.split('\n');
     const shuffledLines = shuffleArray(lines);
     const rearrangedCode = shuffledLines.join('\n');
@@ -16,7 +15,7 @@ function rearrangeCode(inputCode) {
 
 // Этап 3: Шифрование строк
 function encryptStrings(inputCode) {
-    // Реализация простого шифрования строк ,замена символов на их шестнадцатеричное представление
+    // замена символов на их шестнадцатеричное представление
     const encodedCode = encodeURIComponent(inputCode);
     return encodedCode;
 }
@@ -38,7 +37,6 @@ function shuffleArray(array) {
     return shuffledArray;
 }
 
-// Главная функция обфускации, которая объединяет все этапы
 function obfuscateCode(inputCode) {
     let obfuscatedCode = inputCode;
 
@@ -46,8 +44,6 @@ function obfuscateCode(inputCode) {
     obfuscatedCode = rearrangeCode(obfuscatedCode);
     obfuscatedCode = encryptStrings(obfuscatedCode);
     obfuscatedCode = insertDummyExpressions(obfuscatedCode);
-    
-    // Добавьте вызовы других этапов обфускации по необходимости
 
     return obfuscatedCode;
 }
